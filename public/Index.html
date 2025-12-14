@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Realtime Chat (Express + ws)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="app-header">
+      <div class="brand">
+        <h1>Realtime Chat</h1>
+        <p>Express + ws • JWT • ваши чаты и сообщения в реальном времени</p>
+      </div>
+      <div class="row wrap">
+        <button id="btnLogout" class="secondary" title="Выйти из аккаунта">Logout</button>
+      </div>
+    </header>
+
+    <section class="card" aria-label="Авторизация">
+      <h2>Аккаунт</h2>
+
+      <div class="grid">
+        <div class="auth-panel">
+          <h3>Регистрация</h3>
+
+          <div class="field">
+            <label for="regEmail">Email</label>
+            <input id="regEmail" placeholder="name@example.com" autocomplete="email" />
+          </div>
+
+          <div class="field">
+            <label for="regPass">Пароль</label>
+            <input id="regPass" placeholder="Минимум 6–8 символов" type="password" autocomplete="new-password" />
+          </div>
+
+          <div class="row">
+            <button id="btnRegister">Создать аккаунт</button>
+          </div>
+        </div>
+
+        <div class="auth-panel">
+          <h3>Вход</h3>
+
+          <div class="field">
+            <label for="logEmail">Email</label>
+            <input id="logEmail" placeholder="name@example.com" autocomplete="email" />
+          </div>
+
+          <div class="field">
+            <label for="logPass">Пароль</label>
+            <input id="logPass" placeholder="Ваш пароль" type="password" autocomplete="current-password" />
+          </div>
+
+          <div class="row">
+            <button id="btnLogin">Войти</button>
+          </div>
+        </div>
+      </div>
+
+      <hr class="sep" />
+      <p id="authStatus" class="muted">Статус: не авторизован</p>
+    </section>
+
+    <section class="card" aria-label="Чаты">
+      <h2>Чаты</h2>
+
+      <div class="row">
+        <input id="chatName" placeholder="Название нового чата…" />
+        <button id="btnCreateChat">Создать</button>
+      </div>
+
+      <ul id="chatList" aria-label="Список чатов"></ul>
+      <p class="footer-hint">Подсказка: ваши чаты видны только вам.</p>
+    </section>
+
+    <section class="card" aria-label="Сообщения">
+      <h2>Сообщения</h2>
+      <p id="activeChat" class="muted">Чат не выбран</p>
+
+      <div id="messages" class="messages" aria-label="Лента сообщений"></div>
+
+      <div class="row" style="margin-top: 10px;">
+        <input id="msgText" placeholder="Напишите сообщение…" />
+        <button id="btnSend">Отправить</button>
+      </div>
+
+      <p class="footer-hint">Сообщения приходят через WebSocket без перезагрузки страницы.</p>
+    </section>
+  </main>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
